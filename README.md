@@ -1,3 +1,5 @@
+
+HEAD
 # AlgoView — Algorithm Visualizer
 
 ->An interactive browser-based tool to visualize sorting algorithms 
@@ -49,7 +51,7 @@ what enables the manual step-through feature. I also learned how to
 manage rendering performance on Canvas and handle responsive sizing 
 with devicePixelRatio for crisp displays.
 
----
+
 
 Made by [chevella sindhu](https://github.com/sindhu24799)
 ```
@@ -61,3 +63,7 @@ Made by [chevella sindhu](https://github.com/sindhu24799)
 .DS_Store
 Thumbs.db
 *.log
+
+# AlgoView
+An interactive browser-based tool to visualize Bubble Sort, Selection Sort, and Merge Sort with real-time color coded feedback and step-by-step execution.
+ d00ffa063b5d92ac3f5bee2766c497a5c80405a9
