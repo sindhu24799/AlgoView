@@ -9,11 +9,11 @@
 
 ![AlgoView Preview](assets/preview.png)
 
-**🎯 Perfect for:** Learning algorithms, interview preparation, teaching data structures
+** Perfect for:** Learning algorithms, interview preparation, teaching data structures
 
 ---
 
-## ✨ Quick Start
+## Quick Start
 
 ```bash
 # No installation needed! Just open in browser:
@@ -25,7 +25,7 @@ https://sindhu24799.github.io/algoview/
 
 ---
 
-## 🎯 Key Features
+## Key Features
 
 ### 📊 Visualization
 - **Dual View System** - Canvas bar chart + Array value boxes
@@ -35,14 +35,14 @@ https://sindhu24799.github.io/algoview/
 - **Particle Effects** - Visual feedback on swaps
 - **Neon Glow Theme** - Modern dark UI
 
-### ⌨️ Controls
+###  Controls
 - **Keyboard Shortcuts** - Space (Play/Pause), R (Reset), S (Step), 1-6 (Select Algo)
 - **Adjustable Speed** - 50ms to 2000ms per step
 - **Fast Forward** - 10x speed boost
 - **Sound Effects** - Audio feedback for operations
 - **Array Patterns** - Random, sorted, reverse, nearly sorted, few unique
 
-### 📈 Metrics
+### Metrics
 - **Live Counters** - Comparisons, swaps, elapsed time, step progress
 - **Complexity Display** - Best/avg/worst case, space complexity
 - **Algorithm Comparison** - Side-by-side complexity table
@@ -53,16 +53,16 @@ https://sindhu24799.github.io/algoview/
 
 | Algorithm | Best | Average | Worst | Space | Stable |
 |-----------|------|---------|-------|-------|--------|
-| **Bubble Sort** | O(n) | O(n²) | O(n²) | O(1) | ✅ |
-| **Selection Sort** | O(n²) | O(n²) | O(n²) | O(1) | ❌ |
-| **Insertion Sort** | O(n) | O(n²) | O(n²) | O(1) | ✅ |
-| **Merge Sort** | O(n log n) | O(n log n) | O(n log n) | O(n) | ✅ |
-| **Quick Sort** | O(n log n) | O(n log n) | O(n²) | O(log n) | ❌ |
-| **Heap Sort** | O(n log n) | O(n log n) | O(n log n) | O(1) | ❌ |
+| **Bubble Sort** | O(n) | O(n²) | O(n²) | O(1) | Yes |
+| **Selection Sort** | O(n²) | O(n²) | O(n²) | O(1) | No |
+| **Insertion Sort** | O(n) | O(n²) | O(n²) | O(1) | Yes |
+| **Merge Sort** | O(n log n) | O(n log n) | O(n log n) | O(n) | Yes|
+| **Quick Sort** | O(n log n) | O(n log n) | O(n²) | O(log n) | No |
+| **Heap Sort** | O(n log n) | O(n log n) | O(n log n) | O(1) | No |
 
 ---
 
-## ⌨️ Keyboard Shortcuts
+##  Keyboard Shortcuts
 
 | Key | Action |
 |-----|--------|
@@ -79,7 +79,7 @@ https://sindhu24799.github.io/algoview/
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Language:** JavaScript (ES6+)
 - **Rendering:** HTML5 Canvas API
@@ -90,32 +90,32 @@ https://sindhu24799.github.io/algoview/
 
 ---
 
-## 💼 Technical Highlights
+## Technical Highlights
 
 ### Code Quality
-✅ Clean, modular OOP architecture  
-✅ Well-documented with JSDoc-style comments  
-✅ Consistent naming conventions  
-✅ ES6+ modern JavaScript features  
-✅ No external dependencies  
+- Clean, modular OOP architecture  
+- Well-documented with JSDoc-style comments  
+- Consistent naming conventions  
+- ES6+ modern JavaScript features  
+- No external dependencies  
 
 ### Problem Solving
-✅ Implemented 6 different sorting algorithms  
-✅ Created step-generator pattern for visualization  
-✅ Managed complex state for animations  
-✅ Optimized rendering with Canvas API  
-✅ Dual visualization system  
+- Implemented 6 different sorting algorithms  
+- Created step-generator pattern for visualization  
+- Managed complex state for animations  
+- Optimized rendering with Canvas API  
+- Dual visualization system  
 
 ### User Experience
-✅ Real-time feedback with detailed explanations  
-✅ Multiple input patterns for testing edge cases  
-✅ Full keyboard accessibility  
-✅ Responsive design (mobile/tablet/desktop)  
-✅ Sound effects for engagement  
+- Real-time feedback with detailed explanations  
+- Multiple input patterns for testing edge cases  
+- Full keyboard accessibility  
+-  Responsive design (mobile/tablet/desktop)  
+- Sound effects for engagement  
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 algoview/
@@ -132,7 +132,7 @@ algoview/
 
 ---
 
-## 🎓 What I Learned
+##  What I Learned
 
 Building AlgoView taught me:
 
@@ -147,7 +147,7 @@ Building AlgoView taught me:
 
 ---
 
-## 🚀 Deployment
+## Deployment
 
 ### GitHub Pages (Live)
 ```bash
@@ -174,7 +174,7 @@ python3 -m http.server 8000
 
 ---
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - [ ] Add search algorithms (Binary Search, BFS, DFS)
 - [ ] Add graph algorithms (Dijkstra, A*, MST)
@@ -215,23 +215,23 @@ Contributions are welcome! This is a learning project showcasing vanilla JavaScr
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 👨‍💻 Author
+## Author
 
 **Sindhu Chevella**
 
 - 🔗 GitHub: [@sindhu24799](https://github.com/sindhu24799)
 - 💼 LinkedIn: [linkedin.com/in/sindhu-chevella](https://linkedin.com/in/sindhu-chevella)
-- 📧 Email: [Your Email]
+- 📧 Email: [sinduchevella@gmail.com]
 
 ---
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - Inspired by algorithm visualization tools used in education
 - Built with passion for teaching and open source
@@ -241,9 +241,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 <div align="center">
 
-**Made with ❤️ and lots of ☕ by [Sindhu Chevella](https://github.com/sindhu24799)**
+**Made with  by [Sindhu Chevella](https://github.com/sindhu24799)**
 
-⭐ Star this repo if you find it helpful!
+ Star this repo if you find it helpful!
 
 [Live Demo](https://sindhu24799.github.io/algoview/) • [Report Issue](https://github.com/sindhu24799/algoview/issues) • [Request Feature](https://github.com/sindhu24799/algoview/issues)
 
