@@ -1,0 +1,38 @@
+# OS Files
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Optional npm cache directory
+.npm
+
+# Node modules (if you add build tools later)
+node_modules/
+
+# Build outputs (if you add build process later)
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+
+# Screenshots (keep preview.png, ignore others)
+*.png
+!preview.png
+
+# Temporary files
+tmp/
+temp/

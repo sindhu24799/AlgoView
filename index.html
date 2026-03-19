@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="AlgoView - Interactive Sorting Algorithm Visualizer with real-time visualization and step-by-step execution">
+    <meta name="keywords" content="algorithm, visualizer, sorting, bubble sort, merge sort, quick sort, education">
+    <meta name="author" content="Sindhu Chevella">
+    <title>AlgoView - Algorithm Visualizer</title>
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🔍 AlgoView</h1>
+            <p class="subtitle">Interactive Sorting Algorithm Visualizer</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="algorithm">Algorithm:</label>
+                <select id="algorithm">
+                    <option value="bubble">Bubble Sort</option>
+                    <option value="selection">Selection Sort</option>
+                    <option value="insertion">Insertion Sort</option>
+                    <option value="merge">Merge Sort</option>
+                    <option value="quick">Quick Sort</option>
+                    <option value="heap">Heap Sort</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="pattern">Array Pattern:</label>
+                <select id="pattern">
+                    <option value="random">Random</option>
+                    <option value="sorted">Sorted</option>
+                    <option value="reverse">Reverse Sorted</option>
+                    <option value="nearly">Nearly Sorted</option>
+                    <option value="fewunique">Few Unique</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="arraySize">Size: <span id="sizeValue">15</span></label>
+                <input type="range" id="arraySize" min="5" max="20" value="15">
+            </div>
+
+            <div class="control-group">
+                <label for="speed">Speed: <span id="speedValue">500</span>ms</label>
+                <input type="range" id="speed" min="50" max="2000" value="500">
+            </div>
+
+            <div class="control-group">
+                <label for="soundToggle">Sound:</label>
+                <button id="soundToggle" class="sound-btn active">🔊 ON</button>
+            </div>
+        </div>
+
+        <div class="buttons">
+            <button id="generateBtn" class="btn btn-secondary">🔄 New Array</button>
+            <button id="playBtn" class="btn btn-primary">▶ Play</button>
+            <button id="pauseBtn" class="btn btn-warning">⏸ Pause</button>
+            <button id="stepBtn" class="btn btn-info">⏭ Step</button>
+            <button id="resetBtn" class="btn btn-danger">🔁 Reset</button>
+            <button id="fastForwardBtn" class="btn btn-primary">⏩ Fast</button>
+        </div>
+
+        <div class="visualization-container">
+            <div class="canvas-container">
+                <canvas id="visualizer"></canvas>
+            </div>
+
+            <div class="array-display">
+                <h3>📋 Array Representation</h3>
+                <div id="arrayVisual" class="array-visual"></div>
+                <div id="arrayIndices" class="array-indices"></div>
+            </div>
+        </div>
+
+        <div class="explanation-panel" id="explanationPanel">
+            <div class="explanation-header">
+                <span class="explanation-icon">💡</span>
+                <h3>Step-by-Step Explanation</h3>
+            </div>
+            <div class="explanation-content" id="explanationContent">
+                <p class="explanation-text">Click "Play" to start the visualization, or "Step" to advance one step at a
+                    time.</p>
+                <div class="explanation-detail" id="explanationDetail">
+                    The algorithm will sort the array while showing you exactly what happens at each step.
+                </div>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Comparisons:</span>
+                <span id="comparisons" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Swaps:</span>
+                <span id="swaps" class="stat-value">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Time:</span>
+                <span id="time" class="stat-value">0.0s</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Step:</span>
+                <span id="stepCount" class="stat-value">0/0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Status:</span>
+                <span id="status" class="stat-value">Ready</span>
+            </div>
+        </div>
+
+        <div class="performance-metrics">
+            <h3>⚡ Performance Metrics</h3>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-icon">📊</div>
+                    <div class="metric-info">
+                        <span class="metric-label">Best Case</span>
+                        <span id="bestCase" class="metric-value">O(n)</span>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">📈</div>
+                    <div class="metric-info">
+                        <span class="metric-label">Average Case</span>
+                        <span id="avgCase" class="metric-value">O(n²)</span>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">📉</div>
+                    <div class="metric-info">
+                        <span class="metric-label">Worst Case</span>
+                        <span id="worstCase" class="metric-value">O(n²)</span>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">💾</div>
+                    <div class="metric-info">
+                        <span class="metric-label">Space Complexity</span>
+                        <span id="spaceComplexity" class="metric-value">O(1)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color default"></div>
+                <span>Default</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color comparing"></div>
+                <span>Comparing</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color swapping"></div>
+                <span>Swapping</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color pivot"></div>
+                <span>Pivot</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color sorted"></div>
+                <span>Sorted</span>
+            </div>
+        </div>
+
+        <div class="algorithm-info" id="algorithmInfo">
+            <h3>Bubble Sort</h3>
+            <p><strong>Time Complexity:</strong> Best: O(n) | Average: O(n²) | Worst: O(n²)</p>
+            <p><strong>Space Complexity:</strong> O(1) | <strong>Stable:</strong> Yes</p>
+            <p>Bubble Sort repeatedly compares adjacent elements and swaps them if they are in the wrong order. The
+                largest elements "bubble" to the end with each pass.</p>
+        </div>
+
+        <div class="complexity-comparison">
+            <h3>📊 Algorithm Complexity Comparison</h3>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Algorithm</th>
+                            <th>Best</th>
+                            <th>Average</th>
+                            <th>Worst</th>
+                            <th>Space</th>
+                            <th>Stable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr data-algo="bubble">
+                            <td><strong>Bubble Sort</strong></td>
+                            <td>O(n)</td>
+                            <td>O(n²)</td>
+                            <td>O(n²)</td>
+                            <td>O(1)</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr data-algo="selection">
+                            <td><strong>Selection Sort</strong></td>
+                            <td>O(n²)</td>
+                            <td>O(n²)</td>
+                            <td>O(n²)</td>
+                            <td>O(1)</td>
+                            <td>❌ No</td>
+                        </tr>
+                        <tr data-algo="insertion">
+                            <td><strong>Insertion Sort</strong></td>
+                            <td>O(n)</td>
+                            <td>O(n²)</td>
+                            <td>O(n²)</td>
+                            <td>O(1)</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr data-algo="merge">
+                            <td><strong>Merge Sort</strong></td>
+                            <td>O(n log n)</td>
+                            <td>O(n log n)</td>
+                            <td>O(n log n)</td>
+                            <td>O(n)</td>
+                            <td>✅ Yes</td>
+                        </tr>
+                        <tr data-algo="quick">
+                            <td><strong>Quick Sort</strong></td>
+                            <td>O(n log n)</td>
+                            <td>O(n log n)</td>
+                            <td>O(n²)</td>
+                            <td>O(log n)</td>
+                            <td>❌ No</td>
+                        </tr>
+                        <tr data-algo="heap">
+                            <td><strong>Heap Sort</strong></td>
+                            <td>O(n log n)</td>
+                            <td>O(n log n)</td>
+                            <td>O(n log n)</td>
+                            <td>O(1)</td>
+                            <td>❌ No</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="keyboard-shortcuts">
+            <h3>⌨️ Keyboard Shortcuts</h3>
+            <div class="shortcuts-grid">
+                <div class="shortcut-item">
+                    <kbd>Space</kbd>
+                    <span>Play/Pause</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>R</kbd>
+                    <span>Generate New Array</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>S</kbd>
+                    <span>Step Forward</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>F</kbd>
+                    <span>Fast Forward</span>
+                </div>
+                <div class="shortcut-item">
+                    <kbd>1-6</kbd>
+                    <span>Select Algorithm</span>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Made by  <a href="https://github.com/sindhu24799" target="_blank">Sindhu Chevella</a></p>
+            <p class="tech-stack">Built with Vanilla JavaScript • Canvas API • No Dependencies</p>
+        </footer>
+    </div>
+
+    <script src="assets/script.js"></script>
+</body>
+
+</html>
